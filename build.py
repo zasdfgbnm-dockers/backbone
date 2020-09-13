@@ -2,6 +2,7 @@
 
 import yaml
 import uuid
+import os
 
 with open('args.yml') as f:
     args = yaml.load(f, yaml.CLoader)
@@ -13,6 +14,8 @@ with open('radvd.conf') as f:
 
 with open('/etc/radvd.conf', 'w') as f:
     f.write(text)
+
+os.umask(0o077)
 
 # setup wireguard
 with open('NetworkManager/system-connections/wg_backbone.nmconnection') as f:

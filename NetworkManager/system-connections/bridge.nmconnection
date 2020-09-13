@@ -9,7 +9,7 @@ permissions=
 
 [ipv4]
 dns-search=
-method=auto
+method=disabled
 
 [ipv6]
 addr-gen-mode=eui64
