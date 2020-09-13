@@ -8,6 +8,7 @@ master=bridge
 slave-type=bridge
 
 [ip-tunnel]
+local={local_ip}
 mode=10
 remote={allowed_ips}
 
