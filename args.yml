@@ -1,0 +1,8 @@
+wireguard_private_key: yD0x5B0o23vYdgeZJLsntmRgrwDKybuRCIuos3+qfkw=
+wireguard_ip: 172.16.16.1/24
+wireguard_port: 51820
+wireguard_peers:
+    - name: myclient
+      allowed_ips: 172.16.16.2/32
+      public_key: eLTNZzG5taPBtxoi2Yx235Z0Z+PEHPF7+/gz82L6KXo=
+ipv6_prefix: 2001:db8::/64
