@@ -46,9 +46,9 @@ local_ip = args['wireguard_ip']
 if '/' in local_ip:
     local_ip = local_ip.split('/')[0]
 
-with open('NetworkManager/system-connections/ip-tunnel-gretap_{name}.nmconnection') as f:
+with open('NetworkManager/system-connections/gretap_{name}.nmconnection') as f:
     nmconnection = f.read()
 
 for peer in wireguard_peers:
-    with open('/etc/NetworkManager/system-connections/ip-tunnel-gretap_{name}.nmconnection'.format(**peer), 'w') as f:
+    with open('/etc/NetworkManager/system-connections/gretap_{name}.nmconnection'.format(**peer), 'w') as f:
         f.write(nmconnection.format(**peer, local_ip=local_ip, uuid4=str(uuid.uuid4())))

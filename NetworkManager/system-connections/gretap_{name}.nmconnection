@@ -1,8 +1,8 @@
 [connection]
-id=ip-tunnel-gretap_{name}
+id=gretap_{name}
 uuid={uuid4}
 type=ip-tunnel
-interface-name={name}
+interface-name=g_{name}
 permissions=
 master=bridge
 slave-type=bridge
