@@ -1,2 +1,2 @@
 [wireguard-peer.{public_key}]
-allowed-ips={allowed_ip4}, {allowed_ip6};
+allowed-ips={allowed_ip4};{allowed_ip6}

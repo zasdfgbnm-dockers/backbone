@@ -26,7 +26,7 @@ with open('NetworkManager/system-connections/wg_template') as f:
 
 wireguard_peers = ''
 for peer in args['wireguard_peers']:
-    wireguard_peers += template.format(**peer)
+    wireguard_peers += "\n" + template.format(**peer)
 args['wireguard_peers'], wireguard_peers = wireguard_peers, args['wireguard_peers']
 
 nmconnection = nmconnection.format(**args, uuid4=str(uuid.uuid4()))
