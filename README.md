@@ -3,5 +3,5 @@
 To run:
 
 ```bash
-docker run -d networking
+docker run --privileged -d networking
 ```
