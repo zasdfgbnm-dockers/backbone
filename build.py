@@ -41,14 +41,18 @@ with open('NetworkManager/system-connections/bridge.nmconnection') as f:
 with open('/etc/NetworkManager/system-connections/bridge.nmconnection', 'w') as f:
     f.write(nmconnection.format(uuid4=str(uuid.uuid4())))
 
+def parse(cidr):
+    if '/' in cidr:
+        return cidr.split('/')[0]
+    return cidr
+
 # setup gre
-local_ip = args['wireguard_ip']
-if '/' in local_ip:
-    local_ip = local_ip.split('/')[0]
+local_ip4 = parse(args['wireguard_ip4'])
 
 with open('NetworkManager/system-connections/gretap_{name}.nmconnection') as f:
     nmconnection = f.read()
 
 for peer in wireguard_peers:
+    remote_ip4 = parse(peer["allowed_ip4"])
     with open('/etc/NetworkManager/system-connections/gretap_{name}.nmconnection'.format(**peer), 'w') as f:
-        f.write(nmconnection.format(**peer, local_ip=local_ip, uuid4=str(uuid.uuid4())))
+        f.write(nmconnection.format(**peer, local_ip4=local_ip4, remote_ip4=remote_ip4, uuid4=str(uuid.uuid4())))

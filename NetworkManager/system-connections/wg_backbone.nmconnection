@@ -12,13 +12,13 @@ private-key={wireguard_private_key}
 {wireguard_peers}
 
 [ipv4]
-address1={wireguard_ip}
+address1={wireguard_ip4}
 dns-search=
 method=manual
 
 [ipv6]
-addr-gen-mode=stable-privacy
+address1={wireguard_ip6}
 dns-search=
-method=disabled
+method=manual
 
 [proxy]

@@ -8,9 +8,9 @@ master=bridge
 slave-type=bridge
 
 [ip-tunnel]
-local={local_ip}
+local={local_ip4}
 mode=10
-remote={allowed_ips}
+remote={remote_ip4}
 
 [ipv4]
 dns-search=
